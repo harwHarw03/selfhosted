@@ -1,0 +1,15 @@
+services:
+  9router:
+    image: decolua/9router:latest
+    container_name: 9router
+    hostname: 9router
+    ports:
+      - "20128:20128"
+    environment:
+      JWT_SECRET: "${JWT_SECRET}"
+      INITIAL_PASSWORD: "${INITIAL_PASSWORD}"
+      DATA_DIR: /app/data
+      NODE_ENV: production
+    volumes:
+      - "/opt/homelab/data/9router:/app/data"
+    restart: unless-stopped
