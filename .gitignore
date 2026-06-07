@@ -1,0 +1,5 @@
+# Secrets
+.env
+
+# Data now lives at /opt/homelab/data/<service>/ (outside repo)
+# The apps/ directory contains only compose files + .env

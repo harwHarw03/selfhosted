@@ -1,0 +1,34 @@
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    hostname: pihole
+    mac_address: 02:42:0a:0a:14:03
+    networks:
+      default:
+      public:
+        ipv4_address: 10.10.20.3
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    cap_add:
+      - NET_ADMIN
+    env_file: ../.env
+    environment:
+      TZ: UTC
+      WEBPASSWORD: "${PIHOLE_PASSWORD}"
+      DNSMASQ_LISTENING: "all"
+      FTLCONF_dns_listeningMode: "ALL"
+      PIHOLE_DNS_: "1.1.1.1;8.8.8.8"
+      DNSSEC: "true"
+      CONDITIONAL_FORWARDING: "false"
+    volumes:
+      - "/opt/homelab/data/pihole/etc-pihole:/etc/pihole"
+      - "/opt/homelab/data/pihole/etc-dnsmasq.d:/etc/dnsmasq.d"
+    restart: unless-stopped
+
+networks:
+  default:
+  public:
+    external: true
+    name: apps_public

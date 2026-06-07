@@ -1,0 +1,13 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    hostname: vaultwarden
+    ports:
+      - "8080:80"
+    environment:
+      SIGNUPS_ALLOWED: "true"
+      DOMAIN: "http://10.10.20.101:8080"
+    volumes:
+      - "/opt/homelab/data/vaultwarden:/data"
+    restart: unless-stopped

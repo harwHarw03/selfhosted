@@ -1,0 +1,10 @@
+services:
+  actual:
+    image: actualbudget/actual-server:latest
+    container_name: actual
+    hostname: actual
+    ports:
+      - "8083:5006"
+    volumes:
+      - "/opt/homelab/data/actual-budget:/data"
+    restart: unless-stopped
