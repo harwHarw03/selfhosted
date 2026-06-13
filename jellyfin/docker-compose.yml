@@ -1,0 +1,13 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    hostname: jellyfin
+    environment:
+      TZ: "${TZ}"
+    volumes:
+      - "/opt/homelab/data/jellyfin/config:/config"
+      - "/srv/media:/media:ro"
+    ports:
+      - "8096:8096"
+    restart: unless-stopped
