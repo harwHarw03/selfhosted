@@ -1,0 +1,13 @@
+services:
+  siyuan:
+    image: b3log/siyuan:latest
+    container_name: siyuan
+    hostname: siyuan
+    command: ["--workspace=/siyuan/workspace/", "--accessAuthCode=${SIYUAN_AUTH_CODE}"]
+    ports:
+      - "6806:6806"
+    environment:
+      - TZ=Etc/UTC
+    volumes:
+      - "/opt/homelab/data/siyuan:/siyuan/workspace"
+    restart: unless-stopped
