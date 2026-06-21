@@ -1,0 +1,13 @@
+services:
+  kavita:
+    image: kizaing/kavita:latest
+    container_name: kavita
+    hostname: kavita
+    environment:
+      TZ: "${TZ}"
+    volumes:
+      - "/opt/homelab/data/kavita:/kavita/config"
+      - "/srv/media:/media:ro"
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
