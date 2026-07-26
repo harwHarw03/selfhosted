@@ -7,7 +7,12 @@ services:
       TZ: "${TZ}"
     volumes:
       - "/opt/homelab/data/kavita:/kavita/config"
-      - "/srv/media:/media:ro"
+      - type: bind
+        source: /mnt/storage/media
+        target: /media
+        read_only: true
+        bind:
+          create_host_path: false
     ports:
       - "5000:5000"
     restart: unless-stopped
