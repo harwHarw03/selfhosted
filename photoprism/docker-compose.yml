@@ -26,7 +26,7 @@ services:
     volumes:
       - "/opt/homelab/data/photoprism/storage:/photoprism/storage"
       - type: bind
-        source: /mnt/storage/media/personal
+        source: /mnt/storage/media/
         target: /photoprism/originals
         read_only: true
         bind:
