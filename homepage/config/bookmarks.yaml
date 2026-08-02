@@ -1,0 +1,7 @@
+- Administration:
+    - Tailscale:
+        - icon: tailscale.png
+          href: https://login.tailscale.com/admin/machines
+    - Cloudflare:
+        - icon: cloudflare.png
+          href: https://one.dash.cloudflare.com/

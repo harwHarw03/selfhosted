@@ -1,0 +1,69 @@
+- Infrastructure:
+    - Proxmox:
+        icon: proxmox.png
+        href: https://10.10.10.2:8006
+        description: Hypervisor
+        ping: 10.10.10.2
+    - MikroTik:
+        icon: mikrotik.png
+        href: http://10.10.10.1
+        description: Router and VPN gateway
+        ping: 10.10.10.1
+    - Pi-hole:
+        icon: pi-hole.png
+        href: http://10.10.20.3/admin
+        description: Internal DNS
+
+- Main VM:
+    - Nginx Proxy Manager:
+        icon: nginx-proxy-manager.png
+        href: http://10.10.20.101:81
+        description: Reverse proxy
+        siteMonitor: http://10.10.20.101:81
+    - Vaultwarden:
+        icon: vaultwarden.png
+        href: http://10.10.20.101:8080
+        description: Password manager
+        siteMonitor: http://10.10.20.101:8080
+    - Actual Budget:
+        icon: actual-budget.png
+        href: http://10.10.20.101:8083
+        description: Personal finance
+        siteMonitor: http://10.10.20.101:8083
+    - Linkwarden:
+        icon: linkwarden.png
+        href: http://10.10.20.101:8091
+        description: Bookmark archive
+        siteMonitor: http://10.10.20.101:8091
+    - 9Router:
+        icon: mdi-router-wireless
+        href: http://10.10.20.101:20128
+        description: AI API router
+        siteMonitor: http://10.10.20.101:20128
+    - SiYuan:
+        icon: siyuan.png
+        href: http://10.10.20.101:6806
+        description: Knowledge base
+        siteMonitor: http://10.10.20.101:6806
+
+- Media VM:
+    - Jellyfin:
+        icon: jellyfin.png
+        href: http://10.10.20.102:8096
+        description: Movies, series, and music
+        siteMonitor: http://10.10.20.102:8096
+    - Kavita:
+        icon: kavita.png
+        href: http://10.10.20.102:5000
+        description: Books, comics, and manga
+        siteMonitor: http://10.10.20.102:5000
+    - FileBrowser Quantum:
+        icon: filebrowser.png
+        href: "{{HOMEPAGE_VAR_FILEBROWSER_URL}}"
+        description: Storage management
+        siteMonitor: http://10.10.20.102:8084/health
+    - PhotoPrism:
+        icon: photoprism.png
+        href: "{{HOMEPAGE_VAR_PHOTOPRISM_URL}}"
+        description: Photo and video library
+        siteMonitor: http://10.10.20.102:2342/api/v1/status

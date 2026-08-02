@@ -33,6 +33,7 @@ services:
           create_host_path: false
     ports:
       - "10.10.20.102:2342:2342"
+      - "127.0.0.1:2342:2342"
     restart: unless-stopped
 
   mariadb:

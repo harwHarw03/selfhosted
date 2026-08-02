@@ -1,0 +1,19 @@
+title: Harw Homelab
+description: Private service dashboard
+theme: dark
+color: slate
+headerStyle: clean
+statusStyle: dot
+target: _blank
+disableIndexing: true
+hideVersion: true
+layout:
+  Infrastructure:
+    style: row
+    columns: 3
+  Main VM:
+    style: row
+    columns: 4
+  Media VM:
+    style: row
+    columns: 4
