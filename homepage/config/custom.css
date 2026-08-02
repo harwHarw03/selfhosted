@@ -1,0 +1,127 @@
+:root {
+  --glass-surface: rgb(20 15 42 / 58%);
+  --glass-surface-hover: rgb(31 23 62 / 72%);
+  --glass-border: rgb(196 181 253 / 24%);
+  --glass-border-hover: rgb(103 232 249 / 58%);
+  --glass-shadow: 0 14px 40px rgb(8 4 24 / 28%);
+  --cyan-glow: rgb(103 232 249 / 20%);
+  --violet-glow: rgb(167 139 250 / 24%);
+}
+
+#background {
+  background-position: center center;
+  background-size: cover;
+}
+
+#inner_wrapper::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 82% 10%, var(--cyan-glow), transparent 32%),
+    radial-gradient(circle at 18% 88%, var(--violet-glow), transparent 38%),
+    linear-gradient(135deg, rgb(18 12 38 / 16%), rgb(5 12 28 / 28%));
+}
+
+#information-widgets {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 1.1rem;
+  background: rgb(17 12 38 / 42%);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+}
+
+.service-group-name {
+  color: rgb(237 233 254) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.025em;
+  text-shadow: 0 2px 16px rgb(12 5 28 / 70%);
+}
+
+.service-card {
+  border: 1px solid var(--glass-border);
+  border-radius: 0.9rem !important;
+  background: var(--glass-surface) !important;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+}
+
+.service-card:hover {
+  border-color: var(--glass-border-hover);
+  background: var(--glass-surface-hover) !important;
+  box-shadow:
+    0 16px 44px rgb(8 4 24 / 38%),
+    0 0 24px var(--cyan-glow);
+  transform: translateY(-2px);
+}
+
+.service-name {
+  color: rgb(248 250 252) !important;
+  text-shadow: 0 1px 10px rgb(8 4 24 / 75%);
+}
+
+.service-description {
+  color: rgb(221 214 254) !important;
+  opacity: 0.88;
+}
+
+.service-icon img {
+  filter: drop-shadow(0 3px 8px rgb(8 4 24 / 45%));
+}
+
+.widget-container {
+  text-shadow: 0 1px 12px rgb(8 4 24 / 70%);
+}
+
+#bookmarks a {
+  border: 1px solid var(--glass-border);
+  border-radius: 0.9rem;
+  background: var(--glass-surface) !important;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+}
+
+#footer {
+  opacity: 0.72;
+}
+
+@media (max-width: 640px) {
+  #background {
+    background-position: 43% center;
+  }
+
+  #information-widgets {
+    margin: 1rem 1rem 0;
+    padding: 0.75rem;
+    border-radius: 0.95rem;
+    background: rgb(17 12 38 / 68%);
+  }
+
+  .service-card,
+  #bookmarks a {
+    background: rgb(20 15 42 / 76%) !important;
+    backdrop-filter: blur(20px) saturate(125%);
+    -webkit-backdrop-filter: blur(20px) saturate(125%);
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    transition: none !important;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+}

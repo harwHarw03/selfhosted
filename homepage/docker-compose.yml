@@ -17,6 +17,8 @@ services:
       - "./config/services.yaml:/app/config/services.yaml:ro"
       - "./config/widgets.yaml:/app/config/widgets.yaml:ro"
       - "./config/bookmarks.yaml:/app/config/bookmarks.yaml:ro"
+      - "./config/custom.css:/app/config/custom.css:ro"
+      - "./assets:/app/public/images:ro"
     ports:
       - "3000:3000"
     restart: unless-stopped

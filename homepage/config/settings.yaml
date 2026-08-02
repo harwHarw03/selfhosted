@@ -1,12 +1,18 @@
 title: Harw Homelab
 description: Private service dashboard
 theme: dark
-color: slate
+color: violet
 headerStyle: clean
 statusStyle: dot
 target: _blank
 disableIndexing: true
 hideVersion: true
+cardBlur: md
+background:
+  image: /images/wp0.jpg
+  opacity: 55
+  saturate: 100
+  brightness: 75
 layout:
   Infrastructure:
     style: row

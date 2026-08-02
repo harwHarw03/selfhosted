@@ -1,6 +1,6 @@
 - greeting:
     text_size: xl
-    text: Homelab
+    text: Welcome home, Harw
 
 - datetime:
     text_size: md
