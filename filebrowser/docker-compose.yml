@@ -1,0 +1,25 @@
+name: filebrowser
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:v2.42.5
+    container_name: filebrowser
+    hostname: filebrowser
+    user: "0:0"
+    environment:
+      TZ: "${TZ}"
+      FB_ROOT: /srv
+      FB_PORT: "8084"
+      FB_DATABASE: /database/filebrowser.db
+      FB_CONFIG: /config/settings.json
+    volumes:
+      - "/opt/homelab/data/filebrowser/database:/database"
+      - "/opt/homelab/data/filebrowser/config:/config"
+      - type: bind
+        source: /mnt/storage
+        target: /srv
+        bind:
+          create_host_path: false
+    ports:
+      - "10.10.20.102:8084:8084"
+    restart: unless-stopped

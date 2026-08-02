@@ -1,0 +1,64 @@
+name: photoprism
+
+services:
+  photoprism:
+    image: photoprism/photoprism:${PHOTOPRISM_VERSION}
+    container_name: photoprism
+    hostname: photoprism
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      PHOTOPRISM_ADMIN_USER: admin
+      PHOTOPRISM_ADMIN_PASSWORD: "${PHOTOPRISM_ADMIN_PASSWORD:?PHOTOPRISM_ADMIN_PASSWORD is required}"
+      PHOTOPRISM_AUTH_MODE: password
+      PHOTOPRISM_SITE_URL: "${PHOTOPRISM_SITE_URL}"
+      PHOTOPRISM_DISABLE_TLS: "true"
+      PHOTOPRISM_DEFAULT_LOCALE: en
+      PHOTOPRISM_DATABASE_DRIVER: mysql
+      PHOTOPRISM_DATABASE_SERVER: mariadb:3306
+      PHOTOPRISM_DATABASE_NAME: photoprism
+      PHOTOPRISM_DATABASE_USER: photoprism
+      PHOTOPRISM_DATABASE_PASSWORD: "${PHOTOPRISM_DATABASE_PASSWORD:?PHOTOPRISM_DATABASE_PASSWORD is required}"
+      PHOTOPRISM_DISABLE_CHOWN: "true"
+      PHOTOPRISM_READONLY: "true"
+      TZ: "${TZ}"
+    volumes:
+      - "/opt/homelab/data/photoprism/storage:/photoprism/storage"
+      - type: bind
+        source: /mnt/storage/media/personal
+        target: /photoprism/originals
+        read_only: true
+        bind:
+          create_host_path: false
+    ports:
+      - "10.10.20.102:2342:2342"
+    restart: unless-stopped
+
+  mariadb:
+    image: mariadb:${MARIADB_VERSION}
+    container_name: photoprism_mariadb
+    command:
+      - --innodb-buffer-pool-size=512M
+      - --transaction-isolation=READ-COMMITTED
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --max-connections=512
+      - --innodb-rollback-on-timeout=OFF
+      - --innodb-lock-wait-timeout=120
+    environment:
+      MARIADB_AUTO_UPGRADE: "1"
+      MARIADB_DATABASE: photoprism
+      MARIADB_USER: photoprism
+      MARIADB_PASSWORD: "${PHOTOPRISM_DATABASE_PASSWORD:?PHOTOPRISM_DATABASE_PASSWORD is required}"
+      MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD:?MARIADB_ROOT_PASSWORD is required}"
+      TZ: "${TZ}"
+    volumes:
+      - "/opt/homelab/data/photoprism/database:/var/lib/mysql"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
