@@ -54,7 +54,7 @@
         siteMonitor: http://10.10.20.102:8096
     - Kavita:
         icon: kavita.png
-        href: http://10.10.20.102:5000
+        href: "{{HOMEPAGE_VAR_KAVITA_URL}}"
         description: Books, comics, and manga
         siteMonitor: http://10.10.20.102:5000
     - FileBrowser Quantum:
