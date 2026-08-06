@@ -57,13 +57,28 @@
         href: "{{HOMEPAGE_VAR_KAVITA_URL}}"
         description: Books, comics, and manga
         siteMonitor: http://10.10.20.102:5000
+    - Kavita (LAN):
+        icon: kavita.png
+        href: http://10.10.20.102:5000
+        description: Books, comics, and manga
+        siteMonitor: http://10.10.20.102:5000
     - FileBrowser Quantum:
         icon: filebrowser.png
         href: "{{HOMEPAGE_VAR_FILEBROWSER_URL}}"
         description: Storage management
         siteMonitor: http://10.10.20.102:8084/health
+    - FileBrowser Quantum (LAN):
+        icon: filebrowser.png
+        href: http://10.10.20.102:8084
+        description: Storage management
+        siteMonitor: http://10.10.20.102:8084/health
     - PhotoPrism:
         icon: photoprism.png
         href: "{{HOMEPAGE_VAR_PHOTOPRISM_URL}}"
+        description: Photo and video library
+        siteMonitor: http://10.10.20.102:2342/api/v1/status
+    - PhotoPrism (LAN):
+        icon: photoprism.png
+        href: http://10.10.20.102:2342
         description: Photo and video library
         siteMonitor: http://10.10.20.102:2342/api/v1/status
