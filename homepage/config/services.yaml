@@ -45,6 +45,16 @@
         href: http://10.10.20.101:6806
         description: Knowledge base
         siteMonitor: http://10.10.20.101:6806
+    - Obsidian LiveSync:
+        icon: mdi-database-sync-outline
+        href: "{{HOMEPAGE_VAR_LIVESYNC_URL}}"
+        description: Obsidian sync server
+        siteMonitor: http://10.10.20.101:5984/_up
+    - Obsidian LiveSync (LAN):
+        icon: mdi-database-sync-outline
+        href: http://10.10.20.101:5984
+        description: Obsidian sync server
+        siteMonitor: http://10.10.20.101:5984/_up
 
 - Media VM:
     - Jellyfin:
