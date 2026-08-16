@@ -21,14 +21,13 @@ services:
       PHOTOPRISM_DATABASE_USER: photoprism
       PHOTOPRISM_DATABASE_PASSWORD: "${PHOTOPRISM_DATABASE_PASSWORD:?PHOTOPRISM_DATABASE_PASSWORD is required}"
       PHOTOPRISM_DISABLE_CHOWN: "true"
-      PHOTOPRISM_READONLY: "true"
+      PHOTOPRISM_READONLY: "false"
       TZ: "${TZ}"
     volumes:
       - "/opt/homelab/data/photoprism/storage:/photoprism/storage"
       - type: bind
         source: /mnt/storage/media/
         target: /photoprism/originals
-        read_only: true
         bind:
           create_host_path: false
     ports:
